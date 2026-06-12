@@ -1,14 +1,121 @@
 <!doctype html>
-<html lang=fr>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="dist/css/glightbox.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <title>Vanhoa</title>
 </head>
 <body>
-    <div class="slide" id="home"></div>
+<div id="menu-mobile">
+    <nav>
+        <ul>
+            <li><a href="#home">Acceuil</a></li>
+            <li><a href="#pres">A propos</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="slide" id="home">
+    <header>
+        <div id="logo">VanHoa</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Acceuil</a></li>
+                <li><a href="#pres">A propos</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div id="burger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+    <div id="hero">
+        <h1>VanHoa</h1>
+        <h4>Studio</h4>
+        <a href="#" class="btn">En savoir plus</a>
+    </div>
+    <div id="social">social links</div>
+</div>
+<div class="slide" id="pres">
+    <div class="gauche"></div>
+    <div class="droite">
+        <div class="container">
+            <h2>À propos de nous</h2>
+            <p>Fondée en 2021, Vanhoa est un studio créatif Belge qui propose pièces uniques et prêt-à-porter. La marque puise son inspiration dans les sous cultures contemporaines, le cinéma, la musique...
+
+                Animé par l'envie d'innover, Vanhoa explore les matières et les formes à travers des créations pensées comme des objets d'expression, à mi-chemin entre la mode et la recherche artistique.</p>
+            <a href="#" class="btn">Voir vidéo</a>
+        </div>
+    </div>
+</div>
+<div class="slide" id="galerie">
+    <div class="container">
+        <h2>Galerie</h2>
+        <div id="container-gal">
+            <div class="images">
+                <a href="images/images.jpg" alt="image">
+                    <img src="images/images.jpg" alt="image">
+                </a>
+            </div>
+            <div class="images">
+                <a href="images/télécharger%20(2).jpg" data-lightbox="gal" class="gal">
+                    <img src="images/télécharger%20(2).jpg" alt="image">
+                </a>
+            </div>
+            <div class="images">
+                <a href="images/oiso.jpg" data-lightbox="gal" class="gal">
+                    <img src="images/oiso.jpg" alt="image">
+                </a>
+            </div>
+            <div class="images">
+                <a href="images/damn.jpg" data-lightbox="gal" class="gal">
+                    <img src="images/damn.jpg" alt="images">
+                </a>
+            </div>
+            <div class="images">
+                <a href="images/télécharger.jpg" data-lightbox="gal">
+                    <img src="images/télécharger.jpg" data-lightbox="gal" class="gal" alt="">
+                </a>
+            </div>
+            <div class="images"></div>
+            <div class="images"></div>
+        </div>
+    </div>
+</div>
+<script src="dist/js/glightbox.min.js"></script>
+<script>
+    var lightbox = GLightbox();
+    var lightboxDescription = GLightbox({
+        selector: '.gal'
+    })
+
+    const burger = document.querySelector("#burger");
+    const menuMobile = document.querySelector("#menu-mobile");
+    // select links (retourne un tableau - array)
+    const links = document.querySelectorAll("#menu-mobile nav ul li a");
+    // fonction fléchée () => {}
+
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("open");
+        menuMobile.classList.toggle("open");
+    })
+
+    // boucler/parcourir le tableau link
+    for(let link of links) {
+        link.addEventListener("click", () => {
+            burger.classList.remove("open");
+            menuMobile.classList.remove("open");
+        })
+    }
+
+</script>
 </body>
 </html>
